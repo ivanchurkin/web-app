@@ -3,6 +3,11 @@
 const Koa = require('koa');
 const app = new Koa();
 
+/*
+  MIDDLEWARES
+  Below are defined all the middlewares used
+*/
+
 const koaLogger = require('koa-logger');
 
 // @todo
@@ -11,6 +16,11 @@ const koaStatic = require('koa-static');
 
 app.use(koaLogger());
 app.use(koaStatic('public'));
+
+/*
+  ROUTES
+  Below are defined all the routes used
+*/
 
 const Router = require('koa-router');
 const router = new Router();
