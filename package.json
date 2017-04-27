@@ -7,9 +7,11 @@
   "dependencies": {
     "koa": "^2.2.0",
     "koa-router": "next",
-    "koa-send": "^4.1.0"
+    "koa-static": "^3.0.0"
   },
   "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-google": "^0.7.1",
     "koa-logger": "^2.0.1"
   }
 }
