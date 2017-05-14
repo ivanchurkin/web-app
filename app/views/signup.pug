@@ -1,0 +1,36 @@
+extend layout
+
+block body
+  .container
+      .row.justify-content-lg-center
+        .col.col-lg-4
+          .card
+            .card-block
+              h4.card-title Sign up
+              
+              form(method='POST', action='/signup', novalidate)
+                .form-group(class=(errors && errors.username) ? 'has-danger' : '')
+                  label(class='form-control-label', for='form-username') Username
+                  input#form-username.form-control(name='username', type='text', placeholder='Your pseudonym')
+                  if (errors && errors.username)
+                    .form-control-feedback #{errors.username}
+                
+                .form-group(class=(errors && errors.email) ? 'has-danger' : '')
+                  label(class='form-control-label', for='form-email') Email
+                  input#form-email.form-control(name='email', type='email', placeholder='Your email')
+                  if (errors && errors.email)
+                    .form-control-feedback #{errors.email}
+                
+                .form-group(class=(errors && errors.password) ? 'has-danger' : '')
+                  label(class='form-control-label', for='form-password') Password
+                  input#form-password.form-control(name='password', type='password', placeholder='Your password')
+                  if (errors && errors.password)
+                    .form-control-feedback #{errors.password}
+                
+                .form-group(class=(errors && errors.password) ? 'has-danger' : '')
+                  label(class='form-control-label', for='form-password-again') Password again
+                  input#form-password-again.form-control(type='password', placeholder='Your password again')
+                  if (errors && errors.password)
+                    .form-control-feedback #{errors.password}
+                
+                <button type="submit" class="btn btn-primary">Sign up</button>

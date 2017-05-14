@@ -1,17 +1,49 @@
 {
-  "name": "web-app",
-  "version": "1.0.0",
-  "description": "simple web application",
-  "main": "index.js",
-  "license": "MIT",
+  "author": "Ivan Churkin <bahes.in@gmail.com>",
   "dependencies": {
+    "bootstrap": "4.0.0-alpha.6",
     "koa": "^2.2.0",
-    "koa-router": "next",
-    "koa-static": "^3.0.0"
+    "koa-bodyparser": "^4.2.0",
+    "koa-convert": "^1.2.0",
+    "koa-generic-session": "^1.11.5",
+    "koa-logger": "^2.0.1",
+    "koa-passport": "^3.0.0",
+    "koa-pug": "^3.0.0-2",
+    "koa-router": "^7.1.1",
+    "koa-session-mongoose": "^1.0.0",
+    "koa-static-cache": "^5.0.1",
+    "mongoose": "^4.9.9",
+    "mongoose-beautiful-unique-validation": "^5.1.1",
+    "passport-local": "^1.0.0"
   },
+  "description": "simple web application on node.js",
   "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-eslint": "^7.2.3",
+    "babel-loader": "^7.0.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.4.0",
+    "clean-webpack-plugin": "^0.1.16",
+    "cross-env": "^5.0.0",
+    "css-loader": "^0.28.1",
+    "dotenv": "^4.0.0",
     "eslint": "^3.19.0",
     "eslint-config-google": "^0.7.1",
-    "koa-logger": "^2.0.1"
-  }
+    "extract-text-webpack-plugin": "^2.1.0",
+    "node-sass": "^4.5.2",
+    "sass-loader": "^6.0.5",
+    "style-loader": "^0.17.0",
+    "uglifyjs-webpack-plugin": "^0.4.3",
+    "webpack": "^2.5.1",
+    "webpack-manifest-plugin": "^1.1.0"
+  },
+  "license": "MIT",
+  "main": "server.js",
+  "name": "web-app",
+  "repository": "git@github.com:ivanchurkin/web-app.git",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=config/webpack.js",
+    "prod": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=config/webpack.js"
+  },
+  "version": "0.0.1"
 }
