@@ -14,7 +14,7 @@ const provide = new webpack.ProvidePlugin({
 });
 
 const extractSass = new ExtractTextPlugin({
-    filename: 'css/[name].[contenthash:20].css',
+    filename: formatPath('css', 'contenthash:20'),
     disable: process.env.NODE_ENV === 'development',
 });
 
@@ -31,15 +31,18 @@ const cleanFolders = new CleanWebpackPlugin([
 
 module.exports = {
   context: path.resolve(__dirname, '..'),
+
   entry: './resources/assets/js/index.js',
+
   output: {
     path: path.resolve(
       __dirname,
       '..',
       'public'
     ),
-    filename: 'js/[name].[hash].js',
+    filename: formatPath('js', 'hash'),
   },
+
   module: {
     rules: [
     {
@@ -68,6 +71,7 @@ module.exports = {
       }),
     }],
   },
+
   plugins: [
     manifest,
     provide,
@@ -75,4 +79,19 @@ module.exports = {
     extractSass,
     new UglifyJSPlugin(),
   ],
+
+  watch: process.env.NODE_ENV === 'development',
 };
+
+/**
+ * @param {String} type
+ * @param {String} hashPattern
+ * @return {String}
+ */
+function formatPath(type, hashPattern) {
+  const path = process.env.NODE_ENV === 'development'
+    ? `${type}/[name].${type}`
+    : `${type}/[name].[${hashPattern}].${type}`;
+
+  return path;
+}
