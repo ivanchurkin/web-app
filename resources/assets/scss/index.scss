@@ -1,1 +1,10 @@
 @import '~bootstrap/scss/bootstrap.scss';
+
+.navbar {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.navbar-toggler-right {
+  right: 0;
+}
