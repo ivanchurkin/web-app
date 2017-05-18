@@ -2,19 +2,19 @@ extend layout
 
 block body
   .container
-      .row.justify-content-lg-center
-        .col.col-lg-4
-          .card
-            .card-block
-              h4.card-title Sign in
+    .row.justify-content-lg-center
+      .col.col-lg-4
+        .card
+          .card-block
+            h4.card-title Sign in
+            
+            form(method='POST', action='/signin')
+              .form-group
+                label(for='form-email') Email
+                input#form-email.form-control(name='email', type='email', placeholder='Your email')
               
-              form(method='POST', action='/signin')
-                .form-group
-                  label(for='form-email') Email
-                  input#form-email.form-control(name='email', type='email', placeholder='Your email')
-                
-                .form-group
-                  label(for='form-password') Password
-                  input#form-password.form-control(name='password', type='password', placeholder='Your password')
+              .form-group
+                label(for='form-password') Password
+                input#form-password.form-control(name='password', type='password', placeholder='Your password')
 
-                <button type="submit" class="btn btn-primary">Sign in</button>
+              <button type="submit" class="btn btn-primary">Sign in</button>
