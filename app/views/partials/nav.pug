@@ -1,12 +1,12 @@
 .container
-  nav.navbar.navbar-toggleable-md.navbar-light
+  nav.navbar.navbar-toggleable-md.navbar-light.pr-0.pl-0
     button.navbar-toggler.navbar-toggler-right(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
       span.navbar-toggler-icon
-    a.navbar-brand(href='#') Navbar
+    a.navbar-brand(href='/') Navbar
     #navbarSupportedContent.collapse.navbar-collapse
       ul.navbar-nav.mr-auto
-        li.nav-item.active
-          a.nav-link(href='#') Home 
-            span.sr-only (current)
         li.nav-item
           a.nav-link(href='#') Link
+      ul.navbar-nav
+        li.nav-item
+          a.nav-link(href='/signin') Signin
