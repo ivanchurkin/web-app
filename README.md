@@ -10,10 +10,11 @@
 * [passport](http://passportjs.org)
 * [mongodb](https://www.mongodb.com)
 * [mongoose](http://mongoosejs.com)
+* [pugjs](http://pugjs.org)
 
 Клиент:
 
-* [webpack 2](https://webpack.js.org)
+* [webpack 3](https://webpack.js.org)
 * [scss](http://sass-lang.com)
 
 Замечания:
@@ -23,6 +24,6 @@
 #### Как запустить?
 
 1. Клонируем репозиторий.
-2. Выполняем `yarn` или `npm`.
+2. Выполняем `yarn` или `npm install`.
 3. Копируем файл `.env.example` и переименовывем его в `.env`. Определяем указанные в данном файле переменные.
 4. Запускаем приложение коммандой `node server.js`.
