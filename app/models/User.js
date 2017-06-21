@@ -43,12 +43,18 @@ schema.pre('save', function(next) {
     if (err) throw err;
     user.passwordSalt = buf.toString('base64');
 
-    crypto.pbkdf2(user.password, user.passwordSalt, 10000, 128, 'sha1', (err, key) => {
-      if (err) throw err;
+    crypto.pbkdf2(
+      user.password,
+      user.passwordSalt,
+      10000,
+      128,
+      'sha1',
+      (err, key) => {
+        if (err) throw err;
 
-      user.password = key;
-      next();
-    });
+        user.password = key;
+        next();
+      });
   });
 });
 
