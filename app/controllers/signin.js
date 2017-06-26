@@ -7,7 +7,11 @@ const passport = require('koa-passport');
  * @param {Object} ctx
  */
 function index(ctx) {
-  ctx.render('signin.pug');
+  if (ctx.isAuthenticated()) {
+    ctx.redirect('/');
+  } else {
+    ctx.render('signin.pug', {pageTitle: 'Sign in'});
+  }
 };
 
 const login = passport.authenticate('local', {

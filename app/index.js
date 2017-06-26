@@ -44,6 +44,6 @@ const routes = require('./routes');
 
 app.use(routes);
 
-// require('./models/User').remove({}, () => {});
+require('./models/User').remove({}, () => {});
 
 module.exports = app;

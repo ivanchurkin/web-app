@@ -1,4 +1,4 @@
-extend layout
+extend layouts/default
 
 block body
   .container
@@ -8,7 +8,7 @@ block body
           .card-block
             h4.card-title Sign in
             
-            form(method='POST', action='/signin')
+            form(method='POST', action='/signin', novalidate)
               .form-group
                 label(for='form-email') Email
                 input#form-email.form-control(name='email', type='email', placeholder='Your email')
@@ -17,4 +17,5 @@ block body
                 label(for='form-password') Password
                 input#form-password.form-control(name='password', type='password', placeholder='Your password')
 
-              <button type="submit" class="btn btn-primary">Sign in</button>
+              button(type='submit' class='btn btn-primary') Sign in
+              p.d-inline-block.mb-0.ml-2.align-middle or <a href='/signup'>sign up</a>?

@@ -29,6 +29,10 @@ const schema = new Schema({
   passwordSalt: {
     type: String,
   },
+  isConfirmed: {
+    default: false,
+    type: Boolean,
+  },
 }, {
   timestamps: true,
 });
@@ -43,13 +47,8 @@ schema.pre('save', function(next) {
     if (err) throw err;
     user.passwordSalt = buf.toString('base64');
 
-    crypto.pbkdf2(
-      user.password,
-      user.passwordSalt,
-      10000,
-      128,
-      'sha1',
-      (err, key) => {
+    // eslint-disable-next-line max-len
+    crypto.pbkdf2(user.password, user.passwordSalt, 10000, 128, 'sha1', (err, key) => {
         if (err) throw err;
 
         user.password = key;

@@ -13,4 +13,11 @@ router.post('/signin', require('../controllers/signin').login);
 
 router.get('/logout', require('../controllers/logout').index);
 
+router.get('/settings', require('../controllers/settings').index);
+
+router.get(
+  '/confirm',
+  require('../controllers/confirm').index
+);
+
 module.exports = router.routes();

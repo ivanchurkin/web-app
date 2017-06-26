@@ -9,4 +9,11 @@
           a.nav-link(href='#') Link
       ul.navbar-nav
         li.nav-item
-          a.nav-link(href='/signin') Signin
+          if (isAuthenticated)
+            li.nav-item.dropdown
+              a#navbarDropdownMenuLink.nav-link.dropdown-toggle(href='#', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') #{user.username}
+              .dropdown-menu(aria-labelledby='navbarDropdownMenuLink')
+                a.dropdown-item(href='/settings') Settings
+                a.dropdown-item(href='/logout') Log out
+          else
+            a.nav-link(href='/signin') Sign in

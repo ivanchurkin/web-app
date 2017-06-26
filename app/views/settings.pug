@@ -1,0 +1,26 @@
+extend layouts/default
+
+block body
+  .container
+    .row.justify-content-lg-center
+      .col.col-lg-6
+        h1.mb-4 Settings
+        
+        form(method='POST', action='/settings', novalidate)
+          .form-group
+            label(for='username') Username
+            input#username.form-control(type='text', placeholder='Your pseudonym', value=`${user.username}`)
+          
+          .form-group
+            label(for='email') Email
+            input#email.form-control(type='email', placeholder='Your email', value=`${user.email}`)
+          
+          .form-group
+            label(for='password') Password
+            input#password.form-control(type='password', placeholder='Your password')
+          
+          .form-group
+            label(for='passwordAgain') Password again
+            input#passwordAgain.form-control(type='password', placeholder='Your password again')
+          
+          button.btn.btn-success(type='submit') Sign in

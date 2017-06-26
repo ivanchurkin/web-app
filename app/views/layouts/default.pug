@@ -1,0 +1,25 @@
+doctype html
+html(lang='ru')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    if (pageTitle)
+      title #{pageTitle} – Web App
+    else
+      title Web App
+    if (getAsset('main.css') !== undefined)
+      link(href=`${getAsset('main.css')}`, rel='stylesheet')
+  body
+    include ../partials/nav
+    if (isAuthenticated && !user.isConfirmed)
+      .container
+        .row.justify-content-lg-center
+          .col.col-lg-6
+            .alert.alert-warning.alert-dismissible.fade.show(role='alert')
+              button.close(type='button', data-dismiss='alert', aria-label='Close')
+                span(aria-hidden='true') &times;
+              h4.alert-heading Hello, #{user.username}!
+              p.mb-0 Please confirm your email (<strong>#{user.email}</strong>) address.
+    
+    block body
+    script(src=`${getAsset('main.js')}`)

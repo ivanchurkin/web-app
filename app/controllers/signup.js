@@ -1,5 +1,6 @@
 'use strict';
 
+const sendMail = require('../services/nodemailer').send;
 const User = require('../models/User');
 
 /**
@@ -7,7 +8,11 @@ const User = require('../models/User');
  * @param {Object} ctx
  */
 function index(ctx) {
-  ctx.render('signup.pug');
+  if (ctx.isAuthenticated()) {
+    ctx.redirect('/');
+  } else {
+    ctx.render('signup.pug', {pageTitle: 'Sign up'});
+  }
 };
 
 /**
@@ -42,6 +47,15 @@ async function store(ctx) {
       throw e;
     }
   }
+
+  sendMail({
+    from: `"Web App" <${process.env.MAIL_USER}>`,
+    to: user.email,
+    subject: 'Please confirm your email',
+    text: `Click here – http://${process.env.APP_ADDRESS}/confirm?email=${user.email}&code=${user._id} to confirm your email.`,
+    // eslint-disable-next-line max-len
+    html: `Click <a href="http://${process.env.APP_ADDRESS}/confirm?email=${user.email}&code=${user._id}">here</a> to confirm your email.`,
+  });
 
   ctx.login(user);
   ctx.redirect('/');

@@ -5,10 +5,10 @@
  * @param {Object} ctx
  */
 function index(ctx) {
-    ctx.render('index.pug', {
-      isAuthenticated: ctx.isAuthenticated(),
-      user: ctx.state.user,
-    });
+  ctx.render('settings.pug', {
+    isAuthenticated: ctx.isAuthenticated(),
+    user: ctx.state.user,
+  });
 };
 
 module.exports = {index};
